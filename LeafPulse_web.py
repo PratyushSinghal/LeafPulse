@@ -66,17 +66,29 @@ def main():
     if 'plant_health_status' not in st.session_state:
         st.session_state.plant_health_status = "No Data Yet."
     
-    st.markdown(
-        f"""
-        <style>
-            .reportview-container {{
-                background: url(data:image/jpeg;base64,{base64.b64encode(open(background_image, "rb").read()).decode()});
-                background-size: cover;
-            }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+   st.markdown(
+    f"""
+    <style>
+        .reportview-container {{
+            background: url(data:image/jpeg;base64,{base64.b64encode(open(background_image, "rb").read()).decode()});
+            background-size: cover;
+        }}
+        .stTextInput, .stTextArea {{
+            max-width: 600px;
+            margin: auto;
+        }}
+        .stButton {{
+            display: flex;
+            justify-content: center;
+        }}
+        .stImage {{
+            display: flex;
+            justify-content: center;
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
     
     uploaded_file = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
     
