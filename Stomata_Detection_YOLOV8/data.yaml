@@ -1,0 +1,5 @@
+train: /content/gdrive/MyDrive/Stomata_Detection_YOLOV8/images/train
+val: /content/gdrive/MyDrive/Stomata_Detection_YOLOV8/images/val
+
+nc: 2
+names: ['Closed_Stomata', 'Open_Stomata']
