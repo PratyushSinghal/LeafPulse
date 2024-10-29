@@ -80,7 +80,7 @@ def main():
     uploaded_file = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
     
     if uploaded_file is not None:
-        st.image(uploaded_file, caption="Uploaded Image")
+        st.image(uploaded_file, caption="Uploaded Image", width=600)
         
         # Make prediction on the uploaded image
         if st.button("Make Prediction"):
@@ -88,7 +88,7 @@ def main():
 
             st.session_state.plant_health_status = plant_health_status
             
-            st.image(output_image_path, caption="Detected Objects with Bounding Boxes")
+            st.image(output_image_path, caption="Detected Objects with Bounding Boxes", width=600)
             
             st.write(f"Open Stomata Count: {open_stomata_count}")
             st.write(f"Closed Stomata Count: {closed_stomata_count}")
