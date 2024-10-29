@@ -61,7 +61,6 @@ def make_prediction(image_file):
 
 #App
 def main():
-    st.set_page_config(layout="wide")
     st.title("Stomata Detection and Classification")
     if 'plant_health_status' not in st.session_state:
         st.session_state.plant_health_status = "No Data Yet."
@@ -73,18 +72,6 @@ def main():
                 background: url(data:image/jpeg;base64,{base64.b64encode(open(background_image, "rb").read()).decode()});
                 background-size: cover;
             }}
-            .stTextInput, .stTextArea {{
-                max-width: 600px;
-                margin: auto;
-            }}
-            .stButton {{
-                display: flex;
-                justify-content: center;
-            }}
-            .stImage {{
-                display: flex;
-                justify-content: center;
-            }}
         </style>
         """,
         unsafe_allow_html=True
@@ -93,7 +80,7 @@ def main():
     uploaded_file = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
     
     if uploaded_file is not None:
-        st.image(uploaded_file, caption="Uploaded Image", width=400)
+        st.image(uploaded_file, caption="Uploaded Image")
         
         # Make prediction on the uploaded image
         if st.button("Make Prediction"):
@@ -101,7 +88,7 @@ def main():
 
             st.session_state.plant_health_status = plant_health_status
             
-            st.image(output_image_path, caption="Detected Objects with Bounding Boxes", width=400)
+            st.image(output_image_path, caption="Detected Objects with Bounding Boxes")
             
             st.write(f"Open Stomata Count: {open_stomata_count}")
             st.write(f"Closed Stomata Count: {closed_stomata_count}")
