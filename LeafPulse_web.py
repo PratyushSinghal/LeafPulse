@@ -102,7 +102,7 @@ def main():
     current_month = datetime.now().strftime("%B")
     
     if st.button("Ask"):
-        client = OpenAI(api_key='sk-7tSnHvGj8EGEBvETIlN403sXnzNDwdm9F6LCKw68QQT3BlbkFJPR5_cJqLBaTQZM8UzHHhuqjoLTDDQz82anDS9B23gA')
+        client = OpenAI(api_key= st.secrets["API_key"])
         plant_health_status = st.session_state.plant_health_status
         prompt = (
             f"You are located in {place}. The plant health status is: {plant_health_status}. "
