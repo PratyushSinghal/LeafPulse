@@ -116,7 +116,7 @@ def main():
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": prompt}
         ],
-        max_tokens=50
+        max_tokens=500
         ) 
         st.text_area("Input:", user_input)
         st.text_area("Response:", response.choices[0].message.content)
