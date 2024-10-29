@@ -110,7 +110,7 @@ def main():
             f"You are located in {place}. The plant health status is: {plant_health_status}. "
             f"The current month is {current_month}. Now consider the following question: {user_input}"
         )
-        response = client.ChatCompletion.create(
+        response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
