@@ -7,7 +7,7 @@ from ultralytics import YOLO
 from PIL import Image
 from datetime import datetime
 
-background_image = r"/Users/pratyushsinghal/Downloads/bg.png"
+background_image = 'bg.png'
 
 # Function to calculate the stomata ratio
 def calculate_stomata_ratio(results):
@@ -42,7 +42,7 @@ def classify_plant_health(ratio):
 
 # Function to make prediction using fine-tuned YOLOv8 model
 def make_prediction(image_file):
-    model = YOLO('/Users/pratyushsinghal/Downloads/best.pt')
+    model = YOLO('Stomata_Detection_YOLOV8/model/detect/train2/weights/best.pt')
     
     temp_image_path = "temp_image.jpg"
     with open(temp_image_path, "wb") as f:
