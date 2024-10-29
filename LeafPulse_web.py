@@ -117,11 +117,9 @@ def main():
             {"role": "user", "content": prompt}
         ],
         max_tokens=50
-        )
-
-        
+        ) 
         st.text_area("Input:", user_input)
-        st.text_area("Response:", response.choices[0].message['content'].strip())
+        st.text_area("Response:", response.choices[0].message.content)
 
     # Clear button
     if st.button("Clear"):
