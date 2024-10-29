@@ -103,23 +103,25 @@ def main():
     
     if st.button("Ask"):
         client = OpenAI(api_key= st.secrets["API_key"])
-        plant_health_status = st.session_state.plant_health_status
+        plant_health_status = st.session_state.get('plant_health_status', 'Unknown')
+
+
         prompt = (
             f"You are located in {place}. The plant health status is: {plant_health_status}. "
             f"The current month is {current_month}. Now consider the following question: {user_input}"
         )
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",  
-            messages=[
+        response = client.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
             {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": user_input}
-            ],
-            max_tokens=50
+            {"role": "user", "content": prompt}
+        ],
+        max_tokens=50
         )
 
         
         st.text_area("Input:", user_input)
-        st.text_area("Response: ", response.choices[0].text.strip())
+        st.text_area("Response:", response.choices[0].message['content'].strip())
 
     # Clear button
     if st.button("Clear"):
