@@ -4,4 +4,4 @@ Pillow
 ultralytics
 openai
 datetime
-opencv-python
+opencv-python-headless
